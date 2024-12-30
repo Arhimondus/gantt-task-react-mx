@@ -153,12 +153,16 @@ const convertToBar = (
 ): BarTask => {
   let x1: number;
   let x2: number;
+  let xm: number;
+
   if (rtl) {
+    xm = taskXCoordinateRTL(task.plan_end, dates, columnWidth);
     x2 = taskXCoordinateRTL(task.start, dates, columnWidth);
-    x1 = taskXCoordinateRTL(task.end, dates, columnWidth);
+    x1 = taskXCoordinateRTL(task.fact_end, dates, columnWidth);
   } else {
     x1 = taskXCoordinate(task.start, dates, columnWidth);
-    x2 = taskXCoordinate(task.end, dates, columnWidth);
+    x2 = taskXCoordinate(task.fact_end, dates, columnWidth);
+    xm = taskXCoordinate(task.plan_end, dates, columnWidth);
   }
   let typeInternal: TaskTypeInternal = task.type;
   if (typeInternal === "task" && x2 - x1 < handleWidth * 2) {
@@ -187,6 +191,7 @@ const convertToBar = (
     typeInternal,
     x1,
     x2,
+    xm,
     y,
     index,
     progressX,
@@ -217,6 +222,7 @@ const convertToMilestone = (
 
   const x1 = x - taskHeight * 0.5;
   const x2 = x + taskHeight * 0.5;
+  const xm = x + taskHeight * 0.5;
 
   const rotatedHeight = taskHeight / 1.414;
   const styles = {
@@ -228,9 +234,10 @@ const convertToMilestone = (
   };
   return {
     ...task,
-    end: task.start,
+    fact_end: task.start,
     x1,
     x2,
+    xm,
     y,
     index,
     progressX: 0,
@@ -453,10 +460,10 @@ const handleTaskBySVGMouseEventForBar = (
       isChanged = changedTask.x1 !== selectedTask.x1;
       if (isChanged) {
         if (rtl) {
-          changedTask.end = dateByX(
+          changedTask.fact_end = dateByX(
             newX1,
             selectedTask.x1,
-            selectedTask.end,
+            selectedTask.fact_end,
             xStep,
             timeStep
           );
@@ -494,10 +501,10 @@ const handleTaskBySVGMouseEventForBar = (
             timeStep
           );
         } else {
-          changedTask.end = dateByX(
+          changedTask.fact_end = dateByX(
             newX2,
             selectedTask.x2,
-            selectedTask.end,
+            selectedTask.fact_end,
             xStep,
             timeStep
           );
@@ -528,10 +535,10 @@ const handleTaskBySVGMouseEventForBar = (
           xStep,
           timeStep
         );
-        changedTask.end = dateByX(
+        changedTask.fact_end = dateByX(
           newMoveX2,
           selectedTask.x2,
-          selectedTask.end,
+          selectedTask.fact_end,
           xStep,
           timeStep
         );
@@ -578,7 +585,7 @@ const handleTaskBySVGMouseEventForMilestone = (
           xStep,
           timeStep
         );
-        changedTask.end = changedTask.start;
+        changedTask.fact_end = changedTask.start;
         changedTask.x1 = newMoveX1;
         changedTask.x2 = newMoveX2;
       }

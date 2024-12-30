@@ -80,6 +80,24 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
     }
   };
 
+  const getXM = () => {
+    const width = task.xm - task.x1;
+    const hasChild = task.barChildren.length > 0;
+    if (isTextInside) {
+      return task.x1 + width * 0.5;
+    }
+    if (rtl && textRef.current) {
+      return (
+        task.x1 -
+        textRef.current.getBBox().width -
+        arrowIndent * +hasChild -
+        arrowIndent * 0.2
+      );
+    } else {
+      return task.x1 + width + arrowIndent * +hasChild + arrowIndent * 0.2;
+    }
+  };
+
   return (
     <g
       onKeyDown={e => {
@@ -109,8 +127,8 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
     >
       {taskItem}
       <text
-        x={getX()}
-        y={task.y + taskHeight * 0.5}
+        x={getXM()}
+        y={task.y + taskHeight * 0.25}
         className={
           isTextInside
             ? style.barLabel
@@ -118,7 +136,19 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
         }
         ref={textRef}
       >
-        {task.name}
+        План
+      </text>
+      <text
+        x={getX()}
+        y={task.y + taskHeight * 0.75}
+        className={
+          isTextInside
+            ? style.barLabel
+            : style.barLabel && style.barLabelOutside
+        }
+        ref={textRef}
+      >
+        Факт
       </text>
     </g>
   );

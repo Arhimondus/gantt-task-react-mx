@@ -80,8 +80,8 @@ export const ganttDateRange = (
     if (task.start < newStartDate) {
       newStartDate = task.start;
     }
-    if (task.end > newEndDate) {
-      newEndDate = task.end;
+    if (task.fact_end > newEndDate) {
+      newEndDate = task.fact_end;
     }
   }
   switch (viewMode) {

@@ -211,7 +211,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         if (
           prevStateTask &&
           (prevStateTask.start.getTime() !== changedTask.start.getTime() ||
-            prevStateTask.end.getTime() !== changedTask.end.getTime() ||
+            prevStateTask.fact_end.getTime() !== changedTask.fact_end.getTime() ||
             prevStateTask.progress !== changedTask.progress)
         ) {
           // actions for change

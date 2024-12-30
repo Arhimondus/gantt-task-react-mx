@@ -15,7 +15,8 @@ export interface Task {
   type: TaskType;
   name: string;
   start: Date;
-  end: Date;
+  fact_end: Date;
+  plan_end: Date;
   /**
    * From 0 to 100
    */

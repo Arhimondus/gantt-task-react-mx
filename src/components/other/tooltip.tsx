@@ -127,12 +127,12 @@ export const StandardTooltipContent: React.FC<{
         task.name
       }: ${task.start.getDate()}-${
         task.start.getMonth() + 1
-      }-${task.start.getFullYear()} - ${task.end.getDate()}-${
-        task.end.getMonth() + 1
-      }-${task.end.getFullYear()}`}</b>
-      {task.end.getTime() - task.start.getTime() !== 0 && (
+      }-${task.start.getFullYear()} - ${task.fact_end.getDate()}-${
+        task.fact_end.getMonth() + 1
+      }-${task.fact_end.getFullYear()}`}</b>
+      {task.fact_end.getTime() - task.start.getTime() !== 0 && (
         <p className={styles.tooltipDefaultContainerParagraph}>{`Duration: ${~~(
-          (task.end.getTime() - task.start.getTime()) /
+          (task.fact_end.getTime() - task.start.getTime()) /
           (1000 * 60 * 60 * 24)
         )} day(s)`}</p>
       )}

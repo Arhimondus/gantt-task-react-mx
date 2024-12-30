@@ -118,7 +118,7 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
 
       const isNotLikeOriginal =
         originalSelectedTask.start !== newChangedTask.start ||
-        originalSelectedTask.end !== newChangedTask.end ||
+        originalSelectedTask.fact_end !== newChangedTask.fact_end ||
         originalSelectedTask.progress !== newChangedTask.progress;
 
       // remove listeners

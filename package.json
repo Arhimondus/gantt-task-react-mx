@@ -1,13 +1,13 @@
 {
-  "name": "gantt-task-react",
-  "version": "0.3.9",
+  "name": "gantt-task-react-mx",
+  "version": "0.3.92",
   "description": "Interactive Gantt Chart for React with TypeScript.",
-  "author": "MaTeMaTuK <maksym.vikarii@gmail.com>",
-  "homepage": "https://github.com/MaTeMaTuK/gantt-task-react",
+  "author": "MaTeMaTuK <maksym.vikarii@gmail.com>, Arhimondus <arhimondus@vk.com>",
+  "homepage": "https://github.com/Arhimondus/gantt-task-react-mx",
   "license": "MIT",
-  "repository": "MaTeMaTuK/gantt-task-react",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "repository": "Arhimondus/gantt-task-react",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
   "source": "src/index.tsx",
   "engines": {
     "node": ">=10"
@@ -60,7 +60,9 @@
     "react-scripts": "^5.0.1",
     "typescript": "^4.7.4"
   },
-  "files": [
-    "dist"
-  ]
+  "exports": {
+    ".": {
+      "default": "./src/index.tsx"
+    }
+  }
 }

@@ -5,6 +5,7 @@ export interface BarTask extends Task {
   typeInternal: TaskTypeInternal;
   x1: number;
   x2: number;
+  xm: number;
   y: number;
   height: number;
   progressX: number;
