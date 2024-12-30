@@ -1,6 +1,6 @@
 {
   "name": "gantt-task-react-mx",
-  "version": "0.3.92",
+  "version": "0.3.93",
   "type": "module",
   "description": "Interactive Gantt Chart for React with TypeScript.",
   "author": "MaTeMaTuK <maksym.vikarii@gmail.com>, Arhimondus <arhimondus@vk.com>",
