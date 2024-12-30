@@ -7,16 +7,12 @@
   "homepage": "https://github.com/Arhimondus/gantt-task-react-mx",
   "license": "MIT",
   "repository": "Arhimondus/gantt-task-react",
-  "main": "src/index.tsx",
   "module": "src/index.tsx",
-  "source": "src/index.tsx",
   "exports": {
     ".": {
-      "import": "./src/index.tsx"
+      "import": "./src/index.tsx",
+      "default": "./src/index.tsx"
     }
-  },
-  "engines": {
-    "node": ">=10"
   },
   "keywords": [
     "react",
