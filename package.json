@@ -10,6 +10,11 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "source": "src/index.tsx",
+  "exports": {
+    ".": {
+      "import": "./src/index.tsx"
+    }
+  },
   "engines": {
     "node": ">=10"
   },
